@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: multicontainerpod
+spec:
+  containers:
+    - name: web
+      image: httpd:latest
+
+    - name: helper
+      image: busybox:latest
+      command: ["sh","-c","while true; do echo print helper; done"]
