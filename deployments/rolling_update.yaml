@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-d
+  namespace: default 
+spec:
+  replicas: 100
+  selector:
+    matchLabels:
+      tier: backend
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 2
+      maxSurge: 3
+  template:
+    metadata:
+      labels:
+        tier: backend
+    spec:
+      containers:
+        - name: httpd
+          image: httpd:latest
