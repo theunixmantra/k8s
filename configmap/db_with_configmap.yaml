@@ -1,0 +1,20 @@
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+ containers:
+   - name: dbcontainer
+     image: mariadb:latest
+     env:
+       - name: MARIADB_DATABASE
+         valueFrom:
+           configMapKeyRef:
+             name: myconf
+             key: db_name
+       - name: MARIADB_ROOT_PASSWORD
+         valueFrom:
+           configMapKeyRef:
+             name: myconf
+             key: root_password
