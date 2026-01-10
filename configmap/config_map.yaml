@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: myconf
+data:
+  db_name: mydb
+  root_password: redhat
