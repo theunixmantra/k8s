@@ -1,0 +1,13 @@
+apiVesion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+    - name: dbcontainer
+      image: mariadb:latest
+      env:
+        - name: MARIADB_DATABASE
+          value: mydatabase
+        - name: MARIADB_ROOT_PASSWORD
+          value: redhat
